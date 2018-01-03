@@ -2,7 +2,7 @@ version: '2.0'
 
 services:
 
-  P3:
+  p3:
     restart: always
     build: ./P3
     ports:
@@ -16,4 +16,4 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - P3
+      - p3
