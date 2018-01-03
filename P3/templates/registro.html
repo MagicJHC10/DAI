@@ -1,0 +1,12 @@
+{% extends "padre.html" %}
+
+
+{% block cuerpo %}<form action="/nuevousuario" method="post">
+			<label>Usuario</label>
+			<input type="text" name="miembro"> <br>
+			<label>Contraseña</label>
+			<input type="password" name="pass"> <br>
+			<label>Telefono</label>
+			<input type="text" name="tel"> <br>
+			<input type="submit" name="reg" value="Registro"> <br>
+			</form>{% endblock %}

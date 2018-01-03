@@ -1,0 +1,12 @@
+{% extends "padre.html" %}
+
+
+{% block cuerpo %}<form action="/editar" method="post">
+			<label>Usuario</label>
+			<input type="text" name="miembro" value="{{Nombre}}"> <br>
+			<label>Contraseña</label>
+			<input type="password" name="pass" value="{{Contra}}"> <br>
+			<label>Telefono</label>
+			<input type="text" name="tel" value="{{Tel}}"> <br>
+			<input type="submit" name="ed" value="Editar"> <br>
+			</form>{% endblock %}

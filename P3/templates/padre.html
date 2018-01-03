@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Prueba Templates</title>
+	<link rel="stylesheet" href="/static/estilo.css" />
+
+</head>
+
+<body>
+
+	<header>
+	<div id="header_izquierdo">
+		<h1>PRACTICA 3 DAI</h1>
+	</div>
+	<div id="header_derecho">
+
+            <div id="login">
+		{% if session['miembro'] %}
+			<h1>Hola {{session['miembro']}}</h1>
+			<a href="/logout">Logout <br>
+		{% else %}
+			<form action="/login" method="post">
+			<label>Email</label>
+			<input type="text" name="miembro"> <br>
+			<label>Contraseña</label>
+			<input type="password" name="pass"> <br>
+			<input type="submit" name="login" value="Acceder"> <br>
+			</form>
+		{% endif %}
+
+
+            </div>
+
+
+
+
+	</div>
+
+	</header>
+
+
+	<div id="cuerpo">
+	<nav>
+		<div id="sitios">
+		  <ul>
+		      <li class="activo"><a href="/">Padre</a></li>
+		      <li><a href="/hijo1">Hijo 1</a></li>
+		      <li><a href="/hijo2">Hijo 2</a></li>
+		      <li><a href="/hijo3">Hijo 3</a></li>
+		      <li><a href="/nuevousuario">Registro</a></li>
+
+			{% if session['miembro'] %}
+
+		      	<li><a href={{session['urls'][2]}}>Última Página Visitada</a></li>
+		      	<li><a href={{session['urls'][1]}}>Penúltima Página Visitada</a></li>
+		      	<li><a href={{session['urls'][0]}}>Antepenúltima Página Visitada</a></li>
+			<li><a href="/editar">Editar Datos</a></li>
+		      <li><a href="/verusuario">Ver datos de Usuario</a></li>
+			{% endif %}
+		  </ul>
+		</div>
+
+	</nav>
+
+	<div id="bloque">
+	{% block cuerpo %}<h1>  Soy el padre</h1>{% endblock %}
+	</div>
+
+</div>
+
+
+
+<footer>
+        <div id="footIz">
+            <h4>Universidad de Granada</h4>
+        </div>
+
+        <div id="footDer">
+
+            <p>ETSIIT</p>
+        </div>
+
+    </footer>
+
+
+
+</body>
