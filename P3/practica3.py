@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from flask import Flask
 from flask import request
 from flask import render_template
@@ -18,6 +18,7 @@ def save_history(rsp):
                         session.modified = True
                         if(len(session['urls'])) > 3:
                                 session['urls'].pop(0)
+
         return rsp
 
 
